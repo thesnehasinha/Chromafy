@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@layer utilities {
+  .border-glow {
+    position: relative;
+    z-index: 1;
+  }
+
+  .border-glow::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 1.5rem;
+    background: linear-gradient(130deg, #00ffe5, #00aaff, #1effff);
+    background-size: 300% 300%;
+    animation: glow-border 6s ease infinite;
+    filter: blur(12px);
+    opacity: 0.8;
+  }
+
+  @keyframes glow-border {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
